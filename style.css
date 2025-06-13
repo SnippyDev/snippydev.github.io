@@ -1,17 +1,25 @@
 header {
+    display: flex;
     margin: 2%;
     font-family: "Fira Sans", sans-serif;
     color: #ffffff;
     background-color: #232629;
 }
 
-.main-quote {
+header img {
+    margin: 0.3%;
+}
+
+header h1 {
+    margin: 0.3%;
+}
+
+#main-quote {
     font-family: "Fira Sans", sans-serif;
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('images/lavenderhydrangeaceae.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -19,7 +27,42 @@ header {
     height: 200px;
     margin: 0px;
     padding: 0px;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
 }
+
+.bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+  z-index: 0;
+}
+
+#bg1 {
+  z-index: 1;
+}
+
+#bg2 {
+  z-index: 2;
+}
+
+.quote-content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  text-align: center;
+  padding: 2em;
+}
+
+
 
 .main-quote h1 {
     margin: 3%;
@@ -29,4 +72,30 @@ body {
     margin: 0px;
     padding: 0px;
     background-color: #232629;
+}
+
+.main {
+    font-family: "Fira Sans", sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.main-nav button {
+    cursor: pointer;
+    width: 6%;
+    margin: 0.5%;
+    border-radius: 12px;
+    background-color: #31363b;
+    color: white;
+    border: solid;
+    border-color: #31363b;
+    transition-duration: 500ms;
+}
+
+.main-nav button:hover {
+    background-color: #484f57;
+    color: white;
+    transform: scale(1.1);
 }
