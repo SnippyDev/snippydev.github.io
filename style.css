@@ -1,3 +1,7 @@
+.really-big {
+    font-size: 3rem;
+}
+
 nav {
     width: 100%;
     display: flex;
@@ -159,7 +163,7 @@ body {
 
 .main-wallpapers button {
     cursor: pointer;
-    width: 6%;
+    width: 16%;
     margin: 0.5%;
     border-radius: 12px;
     background-color: #31363b;
@@ -245,17 +249,52 @@ body {
     margin: 0 auto;
     margin-top: 2%;
     margin-bottom: 2%;
-    display: flex;
+    display: block;
+}
+
+.post button {
+    display: block;
+    margin: 0.5em auto;
+    width: 70%;
 }
 
 .post img {
     border-radius: 12px;
     border: #ffffff solid;
+    width: 70%;
 }
 
-.post-txt {
+/* .post-txt {
     margin: 0 auto;
     padding: 1%;
+    text-align: left;
+    width: 18%;
+} */
+
+.container {
+    font-family: "Fira Sans", sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border: #ffffff solid;
+    border-radius: 12px;
+    width: 80%;
+    padding: 1%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: block;
+}
+
+.container p {
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.container h2 {
+    margin-bottom: 1%;
     text-align: left;
     width: 18%;
 }
