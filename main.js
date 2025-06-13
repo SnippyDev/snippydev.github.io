@@ -9,8 +9,8 @@ const images = [
 let index = 0;
 let showingBg1 = true;
 
-const bg1 = document.getElementById('bg1');
-const bg2 = document.getElementById('bg2');
+const bg1 = document.getElementById('cbg1');
+const bg2 = document.getElementById('cbg2');
 
 // Set initial image
 bg1.style.backgroundImage = `url('${images[index]}')`;
@@ -36,3 +36,4 @@ function changeBackground() {
 window.addEventListener('load', () => {
   setInterval(changeBackground, 5000);
 });
+

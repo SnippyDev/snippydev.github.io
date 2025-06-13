@@ -1,3 +1,43 @@
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #232629;
+    padding: 1%;
+    /* text-decoration: none; */
+}
+
+nav h3 {
+    font-family: "Fira Sans", sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav a {
+    font-family: "Fira Sans", sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav button {
+    cursor: pointer;
+    width: 20%;
+    margin: 0.5%;
+    border-radius: 12px;
+    background-color: #31363b;
+    color: white;
+    border: solid;
+    border-color: #31363b;
+    transition-duration: 500ms;
+}
+
+nav button:hover {
+    background-color: #484f57;
+    color: white;
+    transform: scale(1.1);
+}
+
 header {
     display: flex;
     margin: 2%;
@@ -98,4 +138,48 @@ body {
     background-color: #484f57;
     color: white;
     transform: scale(1.1);
+}
+
+.main-wallpapers img {
+    width: 85%;
+    border-radius: 12px;
+}
+
+.main-wallpapers button {
+    cursor: pointer;
+    width: 6%;
+    margin: 0.5%;
+    border-radius: 12px;
+    background-color: #31363b;
+    color: white;
+    border: solid;
+    border-color: #31363b;
+    transition-duration: 500ms;
+}
+
+.main-wallpapers button:hover {
+    background-color: #484f57;
+    color: white;
+    transform: scale(1.1);
+}
+
+.wallpaper {
+    border: solid;
+    border-radius: 12px;
+    width: 90%;
+    padding: 1%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.wallpaper-img {
+    border: solid;
+    border-radius: 12px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.wallpaper-img {
+    margin: 15px;
 }
