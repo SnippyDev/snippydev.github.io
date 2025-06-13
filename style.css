@@ -20,6 +20,18 @@ nav a {
     text-decoration: none;
 }
 
+h3 {
+    font-family: "Fira Sans", sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a {
+    font-family: "Fira Sans", sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
 nav button {
     cursor: pointer;
     width: 20%;
