@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rainbow Clock with Sidebar</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      background: linear-gradient(
+        135deg,
+        hsl(0, 100%, 30%),
+        hsl(45, 100%, 30%),
+        hsl(90, 100%, 30%),
+        hsl(135, 100%, 30%),
+        hsl(180, 100%, 30%),
+        hsl(225, 100%, 30%),
+        hsl(270, 100%, 30%),
+        hsl(315, 100%, 30%),
+        hsl(360, 100%, 30%)
+      );
+      background-size: 800% 800%;
+      animation: rainbowScroll 60s linear infinite;
+      color: white;
+    }
+
+    @keyframes rainbowScroll {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    /* Sidebar */
+    #sidebar {
+      width: 200px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1em;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #sidebar button {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      padding: 0.5em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #sidebar button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #clock {
+      font-size: 6em;
+      margin: 0;
+      text-shadow: 2px 2px 6px black;
+    }
+
+    #date {
+      font-size: 2em;
+      margin-top: 0.5em;
+      text-shadow: 1px 1px 4px black;
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <!-- Shortcuts go here -->
+    <div id="shortcuts"></div>
+    <button onclick="addShortcut()">Add Shortcut</button>
+  </div>
+
+  <div id="content">
+    <h1 id="clock"></h1>
+    <p id="date"></p>
+  </div>
+
+  <script>
+    function updateTimeAndDate() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dateStr = now.toLocaleDateString(undefined, options);
+      document.getElementById('date').textContent = dateStr;
+    }
+
+    setInterval(updateTimeAndDate, 1000);
+    updateTimeAndDate();
+
+    // SHORTCUT STORAGE
+    const shortcutsContainer = document.getElementById('shortcuts');
+
+    function loadShortcuts() {
+      shortcutsContainer.innerHTML = '';
+      const shortcuts = JSON.parse(localStorage.getItem('shortcuts') || '[]');
+
+      shortcuts.forEach(({ name, url }, index) => {
+        const btn = document.createElement('button');
+        btn.textContent = name;
+        btn.onclick = () => window.open(url, '_blank');
+        shortcutsContainer.appendChild(btn);
+      });
+    }
+
+    function addShortcut() {
+      const name = prompt("Enter shortcut name:");
+      if (!name) return;
+      const url = prompt("Enter full URL (include https://):");
+      if (!url) return;
+
+      const shortcuts = JSON.parse(localStorage.getItem('shortcuts') || '[]');
+      shortcuts.push({ name, url });
+      localStorage.setItem('shortcuts', JSON.stringify(shortcuts));
+      loadShortcuts();
+    }
+
+    loadShortcuts();
+  </script>
+</body>
+</html>
